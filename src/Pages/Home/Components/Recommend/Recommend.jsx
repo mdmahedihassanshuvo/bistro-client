@@ -10,7 +10,7 @@ import Slide from "./Components/Slide";
 
 const Recommend = () => {
   const [menu] = useMenu();
-  console.log(menu);
+  // console.log(menu);
 
   return (
     <div className="md:mt-16">

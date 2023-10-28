@@ -1,7 +1,7 @@
 import React from "react";
 
 const TableRow = ({ item }) => {
-  console.log(item);
+  // console.log(item);
   const { price, _id, recipe, name, image } = item;
 
   return (

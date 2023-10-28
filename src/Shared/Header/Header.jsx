@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 
 const Header = () => {
 
-    const navList = <>
+    const navItem = <>
     <li className="text-xl">
         <NavLink
           to='/'
@@ -81,14 +81,14 @@ const Header = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
-              {navList}
+              {navItem}
             </ul>
           </div>
           <Link className="text-white"><span className="font-semibold text-lg">BISTRO BOSS</span> <br /> <span className="tracking-widest">RESTAURENT</span></Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
-            {navList}
+            {navItem}
           </ul>
         </div>
         <div className="navbar-end">

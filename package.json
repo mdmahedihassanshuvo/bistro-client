@@ -12,15 +12,18 @@
   "dependencies": {
     "@tanstack/react-query": "^4.36.1",
     "axios": "^1.5.1",
+    "firebase": "^10.5.2",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.47.0",
     "react-icons": "^4.11.0",
     "react-rating": "^2.0.5",
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.16.0",
     "sort-by": "^1.2.0",
+    "sweetalert2": "^11.8.0",
     "swiper": "^10.3.1"
   },
   "devDependencies": {

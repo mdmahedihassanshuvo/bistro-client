@@ -1,7 +1,27 @@
-import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import React, { createContext, useContext } from "react";
+import { Link, NavLink, Navigate } from "react-router-dom";
+import { AuthContext } from "../../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Header = () => {
+
+  const {user, logOut} = useContext(AuthContext);
+  // console.log(user);
+  
+  const handleLogout = () => {
+    logOut()
+    .then(() =>{
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "logout Successfully",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      <Navigate to="/" />
+    })
+    .catch(err => console.log(err));
+  }
 
     const navItem = <>
     <li className="text-xl">
@@ -26,7 +46,7 @@ const Header = () => {
       </li>
       <li className="text-xl">
         <NavLink
-          to='/Dashboard'
+          to='dashboard'
           className={({ isActive }) =>
             isActive ? " hover:text-accent text-yellow-500 border-b-2 border-accent" :  "text-white hover:text-yellow-500"
           }
@@ -92,7 +112,10 @@ const Header = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <Link className="btn btn-ghost text-white text-lg">Sign Out</Link>
+          {
+            user ? <Link onClick={handleLogout} className="btn btn-ghost text-white text-lg">Sign Out</Link> :
+            <Link to="/login" className="btn btn-ghost text-white text-lg">Sign In</Link>
+          }
         </div>
       </div>
     </div>

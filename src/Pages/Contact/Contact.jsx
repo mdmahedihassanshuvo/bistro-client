@@ -1,11 +1,12 @@
 import React from 'react';
-import ContactBanner from './Components/ContactBanner';
 import ContactInfo from './Components/ContactInfo';
+import Cover from '../../Shared/Components/Cover/Cover';
+import contactImg from "../../assets/contact/banner.jpg"
 
 const Contact = () => {
     return (
         <>
-        <ContactBanner/>
+        <Cover img={contactImg} title="contact us" />
         <ContactInfo/>
         </>
     );

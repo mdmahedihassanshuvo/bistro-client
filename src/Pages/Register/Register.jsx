@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import axios from "axios";
 
 const Register = () => {
   const { user } = useContext(AuthContext);
@@ -28,14 +29,25 @@ const Register = () => {
         const user = result.user;
         profileUpdate(data.name, data.photo)
           .then(() => {
-            Swal.fire({
-              position: "center",
-              icon: "success",
-              title: "Sign Up Successfully",
-              showConfirmButton: false,
-              timer: 1500,
-            });
-            navigate(from, {replace: true});
+            const saveUser = { name: data.name, email: data.email };
+            axios
+              .post("http://localhost:7000/user", saveUser)
+              .then((res) => {
+                if (res.data.insertedId) {
+                  Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: "Sign Up Successfully",
+                    showConfirmButton: false,
+                    timer: 1500,
+                  });
+                }
+                // console.log(res);
+              })
+              .catch((err) => {
+                console.log(err);
+              });
+            navigate(from, { replace: true });
             reset();
           })
           .catch((error) => {

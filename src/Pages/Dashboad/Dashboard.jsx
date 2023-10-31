@@ -11,7 +11,6 @@ import { IoWallet } from "react-icons/io5";
 import { FaCartShopping } from "react-icons/fa6";
 import useAdmin from "../../Hooks/Admin/useAdmin";
 
-
 const Dashboard = () => {
   const [isAdmin] = useAdmin();
   console.log(isAdmin);
@@ -46,7 +45,7 @@ const Dashboard = () => {
                 Restaurant
               </p>
             </div>
-            {isAdmin ?
+            {isAdmin?.admin ? (
               <>
                 <li>
                   <Link
@@ -86,14 +85,11 @@ const Dashboard = () => {
                   </Link>
                 </li>
               </>
-             : 
+            ) : (
               <>
                 <li>
-                  <Link
-                    to="userHome"
-                    className="uppercase text-lg font-medium"
-                  >
-                    <IoMdHome /> user Home
+                  <Link to="userHome" className="uppercase text-lg font-medium">
+                    <IoMdHome /> User Home
                   </Link>
                 </li>
                 <li>
@@ -102,25 +98,17 @@ const Dashboard = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    to="cart"
-                    className="uppercase text-lg font-medium"
-                  >
-                    <FaCartShopping /> my cart
+                  <Link to="cart" className="uppercase text-lg font-medium">
+                    <FaCartShopping /> My Cart
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    to="booking"
-                    className="uppercase text-lg font-medium"
-                  >
-                    <BsFillCalendar2EventFill /> my booking
+                  <Link to="booking" className="uppercase text-lg font-medium">
+                    <BsFillCalendar2EventFill /> My Booking
                   </Link>
                 </li>
               </>
-            }
-
-
+            )}
             <div className="divider bg-white h-1"></div>
 
             <li>

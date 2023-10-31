@@ -12,7 +12,7 @@ const Dessert = ({img, dessert, title }) => {
   return (
     <div className="md:my-10">
       <Cover img={img} title={title}/>
-      <TableItem items={dessert} />
+      <TableItem items={dessert} title={title} />
     </div>
   );
 };

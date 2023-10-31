@@ -6,7 +6,7 @@ const Soup = ({img, soup, title}) => {
     return (
         <div className='md:my-10'>
             <Cover img={img} title={title} />
-            <TableItem items={soup} />
+            <TableItem items={soup} title={title}/>
         </div>
     );
 };

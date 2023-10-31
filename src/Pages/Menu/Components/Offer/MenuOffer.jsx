@@ -32,7 +32,7 @@ const MenuOffer = () => {
       </div>
       <div className="text-center">
         <Link
-        to='/shop'
+        to='/shop/:cetegory'
           disabled={position}
           onClick={showAllItems}
           className="btn border-b-2 border-b-black hover:border-b-2 hover:border-b-accent-focus hover:text-orange-500 mt-2"

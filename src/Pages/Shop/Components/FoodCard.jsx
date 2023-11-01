@@ -1,7 +1,33 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../../../Provider/AuthProvider";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 const FoodCard = ({ item }) => {
+  const { user } = useContext(AuthContext);
   const { name, price, recipe, image, _id } = item;
+
+  const handleAddToCart = (item) => {
+    item.userEmail = user?.email;
+    // console.log(item);
+    axios
+      .post("http://localhost:7000/cart", item)
+      .then((res) => {
+        // console.log(res);
+        if (res.data.insertedId) {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Add Item successfully",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <div className="flex flex-col justify-center items-center">

@@ -18,9 +18,9 @@ const Slide = ({ item }) => {
       <div className="card-body text-center">
         <h2 className="text-lg font-medium">{name}</h2>
         <p className="text-sm">{recipe}</p>
-        <div className="card-actions justify-center">
+        {/* <div className="card-actions justify-center">
           <button className="btn hover:bg-[#1F2937] border-b-2 border-b-[#BB8506] uppercase text-[#BB8506] ">Add to Cart</button>
-        </div>
+        </div> */}
       </div>
     </div>
   );

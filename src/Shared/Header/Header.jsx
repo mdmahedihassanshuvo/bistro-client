@@ -2,33 +2,36 @@ import React, { createContext, useContext } from "react";
 import { Link, NavLink, Navigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import { FaShoppingCart } from "react-icons/fa";
 
 const Header = () => {
-
-  const {user, logOut} = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
   // console.log(user);
-  
+
   const handleLogout = () => {
     logOut()
-    .then(() =>{
-      Swal.fire({
-        position: "center",
-        icon: "success",
-        title: "logout Successfully",
-        showConfirmButton: false,
-        timer: 1500,
-      });
-      <Navigate to="/" />
-    })
-    .catch(err => console.log(err));
-  }
+      .then(() => {
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "logout Successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        <Navigate to="/" />;
+      })
+      .catch((err) => console.log(err));
+  };
 
-    const navItem = <>
-    <li className="text-xl">
+  const navItem = (
+    <>
+      <li className="text-xl">
         <NavLink
-          to='/'
+          to="/"
           className={({ isActive }) =>
-            isActive ? " hover:text-accent text-yellow-500 border-b-2 border-accent" :  "text-white hover:text-yellow-500"
+            isActive
+              ? " hover:text-accent text-yellow-500 border-b-2 border-accent"
+              : "text-white hover:text-yellow-500"
           }
         >
           Home
@@ -36,9 +39,11 @@ const Header = () => {
       </li>
       <li className="text-xl">
         <NavLink
-          to='/Contact'
+          to="/Contact"
           className={({ isActive }) =>
-            isActive ? " hover:text-accent text-yellow-500 border-b-2 border-accent" :  "text-white hover:text-yellow-500"
+            isActive
+              ? " hover:text-accent text-yellow-500 border-b-2 border-accent"
+              : "text-white hover:text-yellow-500"
           }
         >
           Contact Us
@@ -46,9 +51,11 @@ const Header = () => {
       </li>
       <li className="text-xl">
         <NavLink
-          to='dashboard'
+          to="dashboard"
           className={({ isActive }) =>
-            isActive ? " hover:text-accent text-yellow-500 border-b-2 border-accent" :  "text-white hover:text-yellow-500"
+            isActive
+              ? " hover:text-accent text-yellow-500 border-b-2 border-accent"
+              : "text-white hover:text-yellow-500"
           }
         >
           Dashboard
@@ -56,9 +63,11 @@ const Header = () => {
       </li>
       <li className="text-xl">
         <NavLink
-          to='/menu'
+          to="/menu"
           className={({ isActive }) =>
-            isActive ? " hover:text-accent text-yellow-500 border-b-2 border-accent" :  "text-white hover:text-yellow-500"
+            isActive
+              ? " hover:text-accent text-yellow-500 border-b-2 border-accent"
+              : "text-white hover:text-yellow-500"
           }
         >
           Our Menu
@@ -66,15 +75,18 @@ const Header = () => {
       </li>
       <li className="text-xl">
         <NavLink
-          to='/shop/:category'
+          to="/shop/:category"
           className={({ isActive }) =>
-            isActive ? " hover:text-accent text-yellow-500 border-b-2 border-accent" :  "text-white hover:text-yellow-500"
+            isActive
+              ? " hover:text-accent text-yellow-500 border-b-2 border-accent"
+              : "text-white hover:text-yellow-500"
           }
         >
           Our Shop
         </NavLink>
       </li>
     </>
+  );
 
   return (
     <div className="md:mx- bg-black rounded-b-md bg-opacity-30 md:w-full fixed top-0 z-10">
@@ -104,18 +116,31 @@ const Header = () => {
               {navItem}
             </ul>
           </div>
-          <Link className="text-white"><span className="font-semibold text-lg">BISTRO BOSS</span> <br /> <span className="tracking-widest">RESTAURENT</span></Link>
+          <Link className="text-white">
+            <span className="font-semibold text-lg">BISTRO BOSS</span> <br />{" "}
+            <span className="tracking-widest">RESTAURENT</span>
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
-            {navItem}
-          </ul>
+          <ul className="menu menu-horizontal px-1">{navItem}</ul>
         </div>
-        <div className="navbar-end">
-          {
-            user ? <Link onClick={handleLogout} className="btn btn-ghost text-white text-lg">Sign Out</Link> :
-            <Link to="/login" className="btn btn-ghost text-white text-lg">Sign In</Link>
-          }
+        <div className="navbar-end space-x-2">
+          <div className="indicator">
+            <span className="indicator-item badge badge-secondary">99+</span>
+            <button className="btn btn-ghost text-white text-lg"><FaShoppingCart/></button>
+          </div>
+          {user ? (
+            <Link
+              onClick={handleLogout}
+              className="btn btn-ghost text-white text-lg"
+            >
+              Sign Out
+            </Link>
+          ) : (
+            <Link to="/login" className="btn btn-ghost text-white text-lg">
+              Sign In
+            </Link>
+          )} 
         </div>
       </div>
     </div>

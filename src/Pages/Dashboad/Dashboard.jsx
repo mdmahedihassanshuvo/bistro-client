@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 import { IoMdHome } from "react-icons/io";
 import { ImSpoonKnife } from "react-icons/im";
 import { VscThreeBars } from "react-icons/vsc";
@@ -13,13 +13,14 @@ import useAdmin from "../../Hooks/Admin/useAdmin";
 
 const Dashboard = () => {
   const [isAdmin] = useAdmin();
-  console.log(isAdmin);
+  // console.log(isAdmin);
 
   return (
     <div>
       <div className="drawer lg:drawer-open">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-        <div className="drawer-content flex flex-col items-center justify-center">
+        {/* flex flex-col */}
+        <div className="drawer-content md:pt-5 bg-[#f6f6f6] items-center justify-center">
           <Outlet />
           <label
             htmlFor="my-drawer-2"
@@ -48,91 +49,91 @@ const Dashboard = () => {
             {isAdmin?.admin ? (
               <>
                 <li>
-                  <Link
+                  <NavLink
                     to="adminHome"
                     className="uppercase text-lg font-medium"
                   >
                     <IoMdHome /> Admin Home
-                  </Link>
+                  </NavLink>
                 </li>
                 <li>
-                  <Link to="addItem" className="uppercase text-lg font-medium">
+                  <NavLink to="addItem" className="uppercase text-lg font-medium">
                     <ImSpoonKnife /> Add Item
-                  </Link>
+                  </NavLink>
                 </li>
                 <li>
-                  <Link
+                  <NavLink
                     to="manageItem"
                     className="uppercase text-lg font-medium"
                   >
                     <VscThreeBars /> Manage Items
-                  </Link>
+                  </NavLink>
                 </li>
                 <li>
-                  <Link
+                  <NavLink
                     to="manageBooking"
                     className="uppercase text-lg font-medium"
                   >
                     <BiSolidBookAlt /> Manage booking
-                  </Link>
+                  </NavLink>
                 </li>
                 <li>
-                  <Link
+                  <NavLink
                     to="manageUser"
                     className="uppercase text-lg font-medium"
                   >
                     <BsPeopleFill /> All users
-                  </Link>
+                  </NavLink>
                 </li>
               </>
             ) : (
               <>
                 <li>
-                  <Link to="userHome" className="uppercase text-lg font-medium">
+                  <NavLink to="userHome" className="uppercase text-lg font-medium">
                     <IoMdHome /> User Home
-                  </Link>
+                  </NavLink>
                 </li>
                 <li>
-                  <Link to="payment" className="uppercase text-lg font-medium">
+                  <NavLink to="payment" className="uppercase text-lg font-medium">
                     <IoWallet /> Payment History
-                  </Link>
+                  </NavLink>
                 </li>
                 <li>
-                  <Link to="cart" className="uppercase text-lg font-medium">
+                  <NavLink to="cart" className="uppercase text-lg font-medium">
                     <FaCartShopping /> My Cart
-                  </Link>
+                  </NavLink>
                 </li>
                 <li>
-                  <Link to="booking" className="uppercase text-lg font-medium">
+                  <NavLink to="booking" className="uppercase text-lg font-medium">
                     <BsFillCalendar2EventFill /> My Booking
-                  </Link>
+                  </NavLink>
                 </li>
               </>
             )}
             <div className="divider bg-white h-1"></div>
 
             <li>
-              <Link to="/" className="uppercase text-lg font-medium">
+              <NavLink to="/" className="uppercase text-lg font-medium">
                 <IoMdHome /> home
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link to="/menu" className="uppercase text-lg font-medium">
+              <NavLink to="/menu" className="uppercase text-lg font-medium">
                 <VscThreeBars /> menu
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link
+              <NavLink
                 to="/shop/:category"
                 className="uppercase text-lg font-medium"
               >
                 <HiShoppingBag /> shop
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link to="/contact" className="uppercase text-lg font-medium">
+              <NavLink to="/contact" className="uppercase text-lg font-medium">
                 <MdEmail /> contact
-              </Link>
+              </NavLink>
             </li>
           </ul>
         </div>

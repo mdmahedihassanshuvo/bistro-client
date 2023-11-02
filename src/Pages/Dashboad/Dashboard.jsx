@@ -20,7 +20,7 @@ const Dashboard = () => {
       <div className="drawer lg:drawer-open">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         {/* flex flex-col */}
-        <div className="drawer-content md:pt-5 bg-[#f6f6f6] items-center justify-center">
+        <div className="drawer-content  bg-[#f6f6f6] items-center justify-center">
           <Outlet />
           <label
             htmlFor="my-drawer-2"

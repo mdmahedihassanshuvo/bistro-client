@@ -17,6 +17,7 @@ import UserHome from "../../Pages/Dashboad/UserDashboard/UserHome";
 import Payment from "../../Pages/Dashboad/UserDashboard/Payment";
 import Cart from "../../Pages/Dashboad/UserDashboard/Cart";
 import Booking from "../../Pages/Dashboad/UserDashboard/Booking";
+import UpdateItem from "../../Pages/Dashboad/AdminDashboard/Components/UpdateItem";
 
 const router = createBrowserRouter([
   {
@@ -94,6 +95,10 @@ const router = createBrowserRouter([
       {
         path: "booking",
         element: <Booking/>
+      },
+      {
+        path: "/dashboard/manageItem/updateItem/:item",
+        element: <UpdateItem/>
       }
     ]
   },

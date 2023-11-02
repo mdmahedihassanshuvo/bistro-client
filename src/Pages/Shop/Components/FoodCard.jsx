@@ -1,15 +1,26 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import axios from "axios";
 import Swal from "sweetalert2";
+import useCart from "../../../Hooks/cart/useCart";
 
 const FoodCard = ({ item }) => {
   const { user } = useContext(AuthContext);
+  const [cartItem, refetch] = useCart();
+  // const [active, setActive] = useState(false);
   const { name, price, recipe, image, _id } = item;
 
   const handleAddToCart = (item) => {
     item.userEmail = user?.email;
     // console.log(item);
+
+    const existItem = cartItem.find(prod => prod.id === item.id);
+    if(existItem){
+      return Swal.fire({
+        icon: 'error',
+        text: 'Food item already added',
+      })
+    }
     axios
       .post("http://localhost:7000/cart", item)
       .then((res) => {
@@ -22,6 +33,7 @@ const FoodCard = ({ item }) => {
             showConfirmButton: false,
             timer: 1500,
           });
+          refetch();
         }
       })
       .catch((err) => {

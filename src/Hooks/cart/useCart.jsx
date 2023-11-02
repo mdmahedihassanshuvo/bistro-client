@@ -6,15 +6,15 @@ import { AuthContext } from '../../Provider/AuthProvider';
 const useCart = () => {
     const {user} = useContext(AuthContext);
 
-    const {data : cartItem =[], isLoading} = useQuery({
+    const {data : cartItem =[], refetch} = useQuery({
         queryKey: ['cartItem', user],
         queryFn: async () =>{
-            const res = await axios.get(`http://localhost:7000/cart/${user.email}`)
+            const res = await axios.get(`http://localhost:7000/cart/${user?.email}`)
             return res.data;
         }
     })
 
-    return [cartItem, isLoading];
+    return [cartItem, refetch];
 };
 
 export default useCart;

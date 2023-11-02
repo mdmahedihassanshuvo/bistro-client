@@ -1,13 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
 import useCart from "../../../Hooks/cart/useCart";
 import SectionTitle from "../../../Shared/Components/SectionTitle/SectionTitle";
 import CartItem from "./Components/CartItem";
 import { FaTrashAlt } from "react-icons/fa";
+import Swal from "sweetalert2";
+import axios from "axios";
 
 const Cart = () => {
-  const [cartItem] = useCart();
+  const [cartItem, refetch] = useCart();
   //   console.log(cartItem);
+  
   const totalPrice = cartItem.reduce((sum, item) => item.price + sum, 0);
+
+  const handleDeleteItem = (id) => {
+    console.log(typeof id);
+    Swal.fire({
+      title: "Are you sure?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios.delete(`http://localhost:7000/cart/${id}`)
+        .then(res => {
+          // console.log(res.data);
+          if (res.data.deletedCount > 0) {
+            Swal.fire(
+              'Deleted!',
+              'Your file has been deleted.',
+              'success'
+            )
+            refetch();
+            }
+        })
+         
+      }
+    });
+  };
 
   return (
     <div>
@@ -32,7 +63,7 @@ const Cart = () => {
           <tbody>
             {/* row 1 */}
             {cartItem.map((item, index) => (
-              <tr>
+              <tr key={item._id}>
                 <th>
                   <label>{index + 1}</label>
                 </th>
@@ -61,7 +92,12 @@ const Cart = () => {
                 </td>
                 <td>{item.price}</td>
                 <th>
-                  <button className="btn bg-red-800 text-white"><FaTrashAlt/></button>
+                  <button
+                    onClick={() => handleDeleteItem(item.id)}
+                    className="btn bg-red-800 text-white"
+                  >
+                    <FaTrashAlt />
+                  </button>
                 </th>
               </tr>
             ))}

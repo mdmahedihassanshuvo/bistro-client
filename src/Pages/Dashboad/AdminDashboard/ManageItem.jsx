@@ -38,7 +38,7 @@ const ManageItem = () => {
       <SectionTitle subHeading="My Cart" heading="WANNA ADD MORE?" />
       <div className="overflow-x-auto md:w-4/5 mx-auto bg-[#ffffff] md:p-4 rounded-md">
         <div className="flex justify-around items-center md:mb-5 text-2xl font-bold">
-          <h2 className="uppercase">Total Items: {menu.length}</h2>
+          <h2 className="uppercase">Total Items: {menu?.length}</h2>
         </div>
         <table className="table">
           {/* head */}

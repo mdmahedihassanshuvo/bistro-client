@@ -4,7 +4,11 @@ import { IoMdHome } from "react-icons/io";
 import { ImSpoonKnife } from "react-icons/im";
 import { VscThreeBars } from "react-icons/vsc";
 import { BiSolidBookAlt } from "react-icons/bi";
-import { BsPeopleFill, BsFillCalendar2EventFill } from "react-icons/bs";
+import {
+  BsPeopleFill,
+  BsFillCalendar2EventFill,
+  BsFillCalendarWeekFill,
+} from "react-icons/bs";
 import { HiShoppingBag } from "react-icons/hi";
 import { MdEmail } from "react-icons/md";
 import { IoWallet } from "react-icons/io5";
@@ -57,7 +61,10 @@ const Dashboard = () => {
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="addItem" className="uppercase text-lg font-medium">
+                  <NavLink
+                    to="addItem"
+                    className="uppercase text-lg font-medium"
+                  >
                     <ImSpoonKnife /> Add Item
                   </NavLink>
                 </li>
@@ -89,12 +96,26 @@ const Dashboard = () => {
             ) : (
               <>
                 <li>
-                  <NavLink to="userHome" className="uppercase text-lg font-medium">
+                  <NavLink
+                    to="userHome"
+                    className="uppercase text-lg font-medium"
+                  >
                     <IoMdHome /> User Home
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="payment" className="uppercase text-lg font-medium">
+                  <NavLink
+                    to="reservation"
+                    className="uppercase text-lg font-medium"
+                  >
+                    <BsFillCalendarWeekFill /> Reservation
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="payment"
+                    className="uppercase text-lg font-medium"
+                  >
                     <IoWallet /> Payment History
                   </NavLink>
                 </li>
@@ -104,7 +125,10 @@ const Dashboard = () => {
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="booking" className="uppercase text-lg font-medium">
+                  <NavLink
+                    to="booking"
+                    className="uppercase text-lg font-medium"
+                  >
                     <BsFillCalendar2EventFill /> My Booking
                   </NavLink>
                 </li>

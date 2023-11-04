@@ -9,8 +9,12 @@ import axios from "axios";
 const Cart = () => {
   const [cartItem, refetch] = useCart();
   //   console.log(cartItem);
-  
-  const totalPrice = cartItem.reduce((sum, item) => item.price + sum, 0);
+
+  const totalPrice = cartItem
+    .reduce((sum, item) => item.price + sum, 0)
+    .toFixed(2);
+
+  // console.log(totalPrice);
 
   const handleDeleteItem = (id) => {
     console.log(typeof id);
@@ -23,25 +27,19 @@ const Cart = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`http://localhost:7000/cart/${id}`)
-        .then(res => {
+        axios.delete(`http://localhost:7000/cart/${id}`).then((res) => {
           // console.log(res.data);
           if (res.data.deletedCount > 0) {
-            Swal.fire(
-              'Deleted!',
-              'Your file has been deleted.',
-              'success'
-            )
+            Swal.fire("Deleted!", "Your file has been deleted.", "success");
             refetch();
-            }
-        })
-         
+          }
+        });
       }
     });
   };
 
   return (
-    <div>
+    <div className="md:pt-5">
       <SectionTitle subHeading="My Cart" heading="WANNA ADD MORE?" />
       <div className="overflow-x-auto md:w-4/5 mx-auto bg-[#ffffff] md:p-4 rounded-md">
         <div className="flex justify-around items-center md:mb-5 text-2xl font-bold">

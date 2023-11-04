@@ -1,74 +1,75 @@
 import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
 import { AuthContext } from "../../../../Provider/AuthProvider";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 const UpdateItem = () => {
   const { item } = useParams();
-  const {isLoading} = useContext(AuthContext);
+  const { isLoading } = useContext(AuthContext);
   const decodedItem = decodeURIComponent(item);
   const itemObject = JSON.parse(decodedItem);
 
-  console.log(itemObject);
+  // console.log(itemObject);
+  const handleForm = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const name = form?.name?.value;
+    const category = form?.category?.value;
+    const price = form?.price?.value;
+    const recipe = form?.recipe?.value;
+    console.log(name, category, price, recipe);
+
+    const item = {
+      name,
+      category,
+      price,
+      recipe,
+    };
+    console.log(item);
+
+    axios
+      .patch(`http://localhost:7000/menu/${itemObject._id}`, item)
+      .then((res) => {
+        console.log(res.data);
+        if(res.data?.modifiedCount > 0){
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Food Item update successfully',
+            showConfirmButton: false,
+            timer: 1500
+          })
+          form.reset();
+        }
+      })
+      .catch((err) => console.log(err));
+  };
 
   return (
     <div className="bg-[#ffffff] md:pt-5 ">
-      <div className="md:mb-5"> 
+      <div className="md:mb-5">
         <h2 className="text-2xl font-semibold text-center">UPDATE ITEM</h2>
       </div>
       <div className="bg-[#f3f3f3] w-4/5 mx-auto">
-        <form className="border-2 p-4 text-center">
-          <div className="">
-            <label className="label">
-              <span className="label-text">Recipe Name*</span>
-            </label>
-            <input
-              type="name"
-              placeholder={itemObject?.name}
-              className="w-full md:h-11 p-2"
-              required
-            />
+        <form onSubmit={handleForm} className="border-2 p-4 text-center">
+          <div className="text-start md:mb-3">
+            <label className="">Category Name*</label> <br />
+            <input type="text" name="name" className="w-full md:h-10" />
           </div>
-
-          <div className="md:mt-2 flex flex-col md:flex-row justify-between items-center md:gap-3">
-            <div className="w-full md:w-1/2">
-              <label className="label">
-                <span className="label-text">Category*</span>
-              </label>
-              <select className="select select-primary w-full ">
-                <option disabled selected>
-                  {itemObject?.cetegory}
-                </option>
-                <option>dessert</option>
-                <option>pizza</option>
-                <option>salad</option>
-                <option>soup</option>
-              </select>
+          <div className="text-start md:mb-3 grid grid-cols-1 md:grid-cols-2 md:gap-3">
+            <div>
+              <label className="">Category*</label> <br />
+              <input type="text" name="category" className="w-full md:h-10" />
             </div>
-            <div className="w-full md:w-1/2">
-              <label className="label">
-                <span className="label-text">Price*</span>
-              </label>
-              <input
-                type="price"
-                placeholder={itemObject?.price}
-                className="w-full md:h-11 p-2"
-                required
-              />
+            <div>
+              <label className="">Price*</label> <br />
+              <input type="text" name="price" className="w-full md:h-10" />
             </div>
           </div>
-          <div className="">
-            <label className="label">
-              <span className="label-text">Recipe Details*</span>
-            </label>
-            <textarea
-              className="w-full md:mt-3"
-              name="recipe"
-              type="recipe"
-              id=""
-              cols="30"
-              rows="8"
-              placeholder={itemObject?.recipe}
-            ></textarea>
+          <div className="text-start md:mb-3">
+            <label className="">Recipe*</label> <br />
+            <input type="text" name="recipe" className="w-full md:h-10" />
           </div>
 
           <button className="btn bg-gradient-to-r from-[#835d23] to-[#b58130] text-white my-2">

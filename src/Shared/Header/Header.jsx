@@ -4,11 +4,13 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import { FaShoppingCart } from "react-icons/fa";
 import useCart from "../../Hooks/cart/useCart";
+import useAdmin from "../../Hooks/Admin/useAdmin";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
   // console.log(user);
-  const [cartItem, isLoading] = useCart()
+  const [cartItem, isLoading] = useCart();
+  const [isAdmin] = useAdmin();
 
   const handleLogout = () => {
     logOut()
@@ -127,10 +129,16 @@ const Header = () => {
           <ul className="menu menu-horizontal px-1">{navItem}</ul>
         </div>
         <div className="navbar-end space-x-2">
-          <div className="indicator">
-            <span className="indicator-item badge badge-secondary">{cartItem?.length}</span>
-            <button className="btn btn-ghost text-white text-lg"><FaShoppingCart/></button>
-          </div>
+          {!isAdmin && (
+            <div className="indicator">
+              <span className="indicator-item badge badge-secondary">
+                {cartItem?.length}
+              </span>
+              <button className="btn btn-ghost text-white text-lg">
+                <FaShoppingCart />
+              </button>
+            </div>
+          )}
           {user ? (
             <Link
               onClick={handleLogout}
@@ -142,7 +150,7 @@ const Header = () => {
             <Link to="/login" className="btn btn-ghost text-white text-lg">
               Sign In
             </Link>
-          )} 
+          )}
         </div>
       </div>
     </div>

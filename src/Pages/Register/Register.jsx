@@ -143,15 +143,15 @@ const Register = () => {
                   <span className="label-text">Photo</span>
                 </label>
                 <input
-                  type="file"
+                  type="text"
                   className="file-input file-input-bordered file-input-accent w-full max-w-xs"
-                  {...register("file", {
+                  {...register("photo", {
                     required: true,
                   })}
                 />
                 {errors.file?.type === "required" && (
                   <p className="text-red-600" role="alert">
-                    email is required
+                    photo url is required
                   </p>
                 )}
               </div>

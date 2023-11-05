@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import axios from "axios";
+import { FaGoogle } from "react-icons/fa";
 
 const Register = () => {
   const { user } = useContext(AuthContext);
@@ -156,9 +157,9 @@ const Register = () => {
                 )}
               </div>
               <div className="form-control mt-6">
-                <button className="btn btn-primary">Sign Up</button>
+                <button className="btn bg-[#d9b783]">Sign Up</button>
               </div>
-              <p className="my-2">
+              <p className="my-2 text-[#d9b783]">
                 Already have an account please,
                 <Link
                   to="/login"

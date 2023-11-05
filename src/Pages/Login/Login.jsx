@@ -4,9 +4,12 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import { FaGoogle } from "react-icons/fa";
+import axios from "axios";
 
 const Login = () => {
-  const { signInUser } = useContext(AuthContext);
+  const { signInUser, loginWithGoogle } = useContext(AuthContext);
+
   const location = useLocation();
   console.log(location);
   const navigate = useNavigate();
@@ -42,6 +45,38 @@ const Login = () => {
           text: `${error.message}`,
         });
       });
+  };
+
+  const handleGoogleLogin = () => {
+    console.log(typeof loginWithGoogle);
+
+    loginWithGoogle()
+      .then((result) => {
+        const loggedUser = result?.user;
+        console.log(loggedUser);
+        axios
+          .post("http://localhost:7000/user", {
+            name: loggedUser?.displayName,
+            email: loggedUser?.email,
+          })
+          .then((res) => {
+            if (res.data.insertedId) {
+              Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Sign Up Successfully",
+                showConfirmButton: false,
+                timer: 1500,
+              });
+              navigate(from, { replace: true });
+            }
+            // console.log(res);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      })
+      .catch((err) => console.log(err));
   };
 
   //   console.log(watch("example")); // watch input value by passing the name of it
@@ -100,9 +135,9 @@ const Login = () => {
                 </label>
               </div>
               <div className="form-control mt-6">
-                <button className="btn btn-primary">Login</button>
+                <button className="btn bg-[#d9b783]">Login</button>
               </div>
-              <p className="my-2">
+              <p className="my-2 text-[#d9b783]">
                 Don't have any account please,{" "}
                 <Link
                   to="/register"
@@ -112,6 +147,13 @@ const Login = () => {
                   Sign Up
                 </Link>
               </p>
+              <p className="text-center font-light">Or sign in with</p>
+              <button
+                onClick={handleGoogleLogin}
+                className="btn btn-circle btn-outline mx-auto"
+              >
+                <FaGoogle />
+              </button>
             </form>
           </div>
         </div>

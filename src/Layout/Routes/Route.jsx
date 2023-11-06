@@ -20,11 +20,13 @@ import UpdateItem from "../../Pages/Dashboad/AdminDashboard/Components/UpdateIte
 import Reservation from "../../Pages/Dashboad/UserDashboard/Reservation";
 import AdminRoute from "./AdminRoute";
 import PaymentHistory from "../../Pages/Dashboad/UserDashboard/PaymentHistory";
+import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
+    errorElement: <ErrorPage/>,
     children: [
       {
         path: "/",

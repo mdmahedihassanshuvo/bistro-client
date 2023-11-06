@@ -63,7 +63,7 @@ const AdminHome = () => {
             <HiUsers />
           </p>
           <div>
-            <h2 className="md:text-xl font-medium">{users.length}</h2>
+            <h2 className="md:text-xl font-medium">{users?.length}</h2>
             <p className="md:text-xl font-medium">Customers</p>
           </div>
         </div>
@@ -72,7 +72,7 @@ const AdminHome = () => {
             <MdProductionQuantityLimits />
           </p>
           <div>
-            <h2 className="md:text-xl font-medium">{menu.length}</h2>
+            <h2 className="md:text-xl font-medium">{menu?.length}</h2>
             <p className="md:text-xl font-medium">Products</p>
           </div>
         </div>
@@ -111,7 +111,7 @@ const AdminHome = () => {
             {data.map((entry, index) => (
               <Cell
                 key={`cell-${index}`}
-                fill={colors[index % colors.length]}
+                fill={colors[index % colors?.length]}
               />
             ))}
           </Bar>

@@ -19,6 +19,7 @@ import Cart from "../../Pages/Dashboad/UserDashboard/Cart";
 import Booking from "../../Pages/Dashboad/UserDashboard/Booking";
 import UpdateItem from "../../Pages/Dashboad/AdminDashboard/Components/UpdateItem";
 import Reservation from "../../Pages/Dashboad/UserDashboard/Reservation";
+import AdminRoute from "./AdminRoute";
 
 const router = createBrowserRouter([
   {
@@ -39,9 +40,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/shop/:category",
-        element: <PrivateRoute>
-          <Shop />
-        </PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            <Shop />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/login",
@@ -63,49 +66,69 @@ const router = createBrowserRouter([
     children: [
       {
         path: "adminHome",
-        element: <AdminHome/>
+        element: (
+          <AdminRoute>
+            <AdminHome />
+          </AdminRoute>
+        ),
       },
       {
         path: "addItem",
-        element: <AddItem/>
+        element: (
+          <AdminRoute>
+            <AddItem />
+          </AdminRoute>
+        ),
       },
       {
         path: "manageItem",
-        element: <ManageItem/>
+        element: (
+          <AdminRoute>
+            <ManageItem />
+          </AdminRoute>
+        ),
       },
       {
         path: "manageBooking",
-        element: <ManageBooking/>
+        element: (
+          <AdminRoute>
+            <ManageBooking />
+          </AdminRoute>
+        ),
       },
       {
         path: "manageUser",
-        element: <ManageUser/>
+        element: (
+          <AdminRoute>
+            <ManageUser />
+          </AdminRoute>
+        ),
       },
       {
         path: "userHome",
-        element: <UserHome/>
+        element: <UserHome />,
       },
       {
         path: "reservation",
-        element: <Reservation/>
+        element: <Reservation />,
       },
       {
         path: "payment",
-        element: <Payment/>
+        element: <Payment />,
       },
       {
         path: "cart",
-        element: <Cart/>
+        element: <Cart />,
       },
       {
         path: "booking",
-        element: <Booking/>
+        element: <Booking />,
       },
       {
         path: "/dashboard/manageItem/updateItem/:item",
-        element: <UpdateItem/>
-      }
-    ]
+        element: <UpdateItem />,
+      },
+    ],
   },
 ]);
 

@@ -2,6 +2,7 @@ import React from "react";
 import SectionTitle from "../../../Shared/Components/SectionTitle/SectionTitle";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const AddItem = () => {
   const handleForm = (event) => {
@@ -25,19 +26,20 @@ const AddItem = () => {
       .post(`http://localhost:7000/menu`, newItem)
       .then((res) => {
         Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'Food Item added successfully',
-            showConfirmButton: false,
-            timer: 1500
-          })
-          form.reset()
+          position: "center",
+          icon: "success",
+          title: "Food Item added successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        form.reset();
       })
       .catch((err) => console.log(err));
   };
 
   return (
     <div className="bg-[#ffffff]">
+      <Helmet title="Dashboard-Add Item" />
       <div className="md:pt-5">
         <SectionTitle subHeading="What's new?" heading="ADD AN ITEM" />
       </div>

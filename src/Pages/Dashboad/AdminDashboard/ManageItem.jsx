@@ -6,6 +6,7 @@ import { FiEdit } from "react-icons/fi";
 import Swal from "sweetalert2";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const ManageItem = () => {
   const [menu, refetch] = useMenu();
@@ -35,6 +36,7 @@ const ManageItem = () => {
 
   return (
     <div className="md:pt-5">
+      <Helmet title="Dashboard-Manage Items" />
       <SectionTitle subHeading="My Cart" heading="MANAGE ALL ITEMS" />
       <div className="overflow-x-auto md:w-4/5 mx-auto bg-[#ffffff] md:p-4 rounded-md">
         <div className="flex justify-around items-center md:mb-5 text-2xl font-bold">
@@ -85,10 +87,12 @@ const ManageItem = () => {
                 <td>{item.price}</td>
                 <th>
                   <Link
-                  to={`/dashboard/manageItem/updateItem/${encodeURIComponent(JSON.stringify(item))}`}
+                    to={`/dashboard/manageItem/updateItem/${encodeURIComponent(
+                      JSON.stringify(item)
+                    )}`}
                     className="btn bg-[#d1a054] text-white"
                   >
-                    <FiEdit/>
+                    <FiEdit />
                   </Link>
                 </th>
                 <th>

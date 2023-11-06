@@ -5,6 +5,7 @@ import { FcCheckmark } from "react-icons/fc";
 import { GiCheckMark } from "react-icons/gi";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const ManageBooking = () => {
   const [bookings, refetch] = useBooking();
@@ -33,6 +34,7 @@ const ManageBooking = () => {
 
   return (
     <div className="bg-[#ffffff]">
+      <Helmet title="Dashboard-Manage Bookings" />
       <div className="md:pt-5">
         <SectionTitle subHeading="At a Glance!" heading="MANAGE ALL BOOKING" />
       </div>

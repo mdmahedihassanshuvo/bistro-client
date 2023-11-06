@@ -6,10 +6,11 @@ import { IoWalletSharp } from "react-icons/io5";
 import { MdProductionQuantityLimits } from "react-icons/md";
 import useMenu from "../../../Hooks/Menu/useMenu";
 import useUsers from "../../../Hooks/Users/useUsers";
+import { Helmet } from "react-helmet-async";
 
 const AdminHome = () => {
   const [menu, refetch] = useMenu();
-  const [users] = useUsers()
+  const [users] = useUsers();
 
   // Group the menu items by category
   const categoryData = menu.reduce((acc, item) => {
@@ -44,6 +45,7 @@ const AdminHome = () => {
 
   return (
     <div className="md:mx-5">
+      <Helmet title="Admin-Home" />
       <div className="md:m-4">
         <h2 className="md:text-3xl">Hi, WELCOME BACK!</h2>
       </div>

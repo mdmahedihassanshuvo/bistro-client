@@ -6,6 +6,7 @@ import { FiEdit } from "react-icons/fi";
 import { FaTrashAlt, FaUserAlt, FaUserFriends } from "react-icons/fa";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const ManageUser = () => {
   const [users, refetch] = useUsers();
@@ -54,6 +55,7 @@ const ManageUser = () => {
 
   return (
     <div className="md:pt-5">
+      <Helmet title="Dashboard-Manage Users" />
       <SectionTitle subHeading="How many?" heading="MANAGE ALL USERS" />
       <div className="overflow-x-auto md:w-4/5 mx-auto bg-[#ffffff] md:p-4 rounded-md">
         <div className="flex justify-around users-center md:mb-5 text-2xl font-bold">

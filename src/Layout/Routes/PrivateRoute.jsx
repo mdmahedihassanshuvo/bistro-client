@@ -1,19 +1,19 @@
-import React, { useContext } from 'react';
-import { AuthContext } from '../../Provider/AuthProvider';
-import { Navigate, useLocation } from 'react-router-dom';
+import React, { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
+import { Navigate, useLocation } from "react-router-dom";
+import LoadingPage from "../../Shared/LoadingPage/LoadingPage";
 
-const PrivateRoute = ({children}) => {
+const PrivateRoute = ({ children }) => {
+  const { user, loading } = useContext(AuthContext);
+  const location = useLocation();
 
-    const {user, loading} = useContext(AuthContext);
-    const location = useLocation();
-
-    if(loading){
-        return <progress className="progress w-56"></progress>;
-    }
-    if(user){
-        return children;
-    }
-    return <Navigate to="/login" state={{from: location}} replace /> ;
+  if (loading) {
+    return <LoadingPage />;
+  }
+  if (user) {
+    return children;
+  }
+  return <Navigate to="/login" state={{ from: location }} replace />;
 };
 
 export default PrivateRoute;

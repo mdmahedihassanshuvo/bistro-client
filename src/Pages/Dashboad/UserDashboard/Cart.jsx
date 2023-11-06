@@ -5,6 +5,7 @@ import CartItem from "./Components/CartItem";
 import { FaTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
 import axios from "axios";
+import { Helmet } from "react-helmet-async";
 
 const Cart = () => {
   const [cartItem, refetch] = useCart();
@@ -40,6 +41,7 @@ const Cart = () => {
 
   return (
     <div className="md:pt-5">
+      <Helmet title="Dashboard-My Cart" />
       <SectionTitle subHeading="My Cart" heading="WANNA ADD MORE?" />
       <div className="overflow-x-auto md:w-4/5 mx-auto bg-[#ffffff] md:p-4 rounded-md">
         <div className="flex justify-around items-center md:mb-5 text-2xl font-bold">

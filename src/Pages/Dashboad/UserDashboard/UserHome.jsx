@@ -6,6 +6,7 @@ import useUserBooking from "../../../Hooks/UserBooking/useUserBooking";
 import useCart from "../../../Hooks/cart/useCart";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import { FaCalendar, FaShoppingCart, FaWallet } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
 
 const UserHome = () => {
   const [userBookings] = useUserBooking();
@@ -15,6 +16,7 @@ const UserHome = () => {
 
   return (
     <div className="md:mx-5">
+      <Helmet title="User-Home" />
       <div className="md:m-4">
         <h2 className="md:text-3xl">Hi, WELCOME BACK!</h2>
       </div>

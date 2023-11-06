@@ -14,12 +14,12 @@ import ManageItem from "../../Pages/Dashboad/AdminDashboard/ManageItem";
 import ManageBooking from "../../Pages/Dashboad/AdminDashboard/ManageBooking";
 import ManageUser from "../../Pages/Dashboad/AdminDashboard/ManageUser";
 import UserHome from "../../Pages/Dashboad/UserDashboard/UserHome";
-import Payment from "../../Pages/Dashboad/UserDashboard/Payment";
 import Cart from "../../Pages/Dashboad/UserDashboard/Cart";
 import Booking from "../../Pages/Dashboad/UserDashboard/Booking";
 import UpdateItem from "../../Pages/Dashboad/AdminDashboard/Components/UpdateItem";
 import Reservation from "../../Pages/Dashboad/UserDashboard/Reservation";
 import AdminRoute from "./AdminRoute";
+import PaymentHistory from "../../Pages/Dashboad/UserDashboard/PaymentHistory";
 
 const router = createBrowserRouter([
   {
@@ -113,8 +113,8 @@ const router = createBrowserRouter([
         element: <Reservation />,
       },
       {
-        path: "payment",
-        element: <Payment />,
+        path: "paymentHistory",
+        element: <PaymentHistory/>
       },
       {
         path: "cart",

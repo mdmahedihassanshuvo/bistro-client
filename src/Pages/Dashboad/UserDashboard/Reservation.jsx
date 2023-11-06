@@ -3,6 +3,7 @@ import SectionTitle from "../../../Shared/Components/SectionTitle/SectionTitle";
 import axios from "axios";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const Reservation = () => {
   const { user } = useContext(AuthContext);
@@ -47,6 +48,7 @@ const Reservation = () => {
 
   return (
     <div className="bg-[#ffffff]">
+      <Helmet title="Dashboard-Reservation" />
       <div className="md:pt-5">
         <SectionTitle subHeading="Reservation" heading="ADD AN ITEM" />
       </div>

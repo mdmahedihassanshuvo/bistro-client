@@ -14,6 +14,7 @@ import { MdEmail } from "react-icons/md";
 import { IoWallet } from "react-icons/io5";
 import { FaCartShopping } from "react-icons/fa6";
 import useAdmin from "../../Hooks/Admin/useAdmin";
+import { Helmet } from "react-helmet-async";
 
 const Dashboard = () => {
   const [isAdmin] = useAdmin();
@@ -21,6 +22,7 @@ const Dashboard = () => {
 
   return (
     <div>
+      <Helmet title="Bistro-Dashboard" />
       <div className="drawer lg:drawer-open">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         {/* flex flex-col */}
@@ -113,7 +115,7 @@ const Dashboard = () => {
                 </li>
                 <li>
                   <NavLink
-                    to="payment"
+                    to="paymentHistory"
                     className="uppercase text-lg font-medium"
                   >
                     <IoWallet /> Payment History

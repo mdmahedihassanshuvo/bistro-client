@@ -12,25 +12,25 @@ import Salad from "./Components/Salad/Salad";
 import Soup from "./Components/Soup/Soup";
 import Cover from "../../Shared/Components/Cover/Cover";
 
-import menuImg from "../../assets/menu/banner3.jpg"
-
+import menuImg from "../../assets/menu/banner3.jpg";
+import { Helmet } from "react-helmet-async";
 
 const Menu = () => {
-
   const [menu] = useMenu();
-  const dessert = menu.filter((item) => item.category === 'dessert');
-  const pizza = menu.filter((item) => item.category === 'pizza');
-  const salad = menu.filter((item) => item.category === 'salad');
-  const soup = menu.filter((item) => item.category === 'soup');
+  const dessert = menu.filter((item) => item.category === "dessert");
+  const pizza = menu.filter((item) => item.category === "pizza");
+  const salad = menu.filter((item) => item.category === "salad");
+  const soup = menu.filter((item) => item.category === "soup");
 
   return (
     <>
-    <Cover img={menuImg} title="our menu" />
-    <MenuOffer/>
-    <Dessert img={dessertImg} dessert={dessert} title="dessert" />
-    <Pizza img={pizzaImg} pizza={pizza} title="pizza" />
-    <Salad img={saladImg} salad={salad} title="salad" />
-    <Soup img={soupImg} soup={soup} title="soup" />
+      <Helmet title="Bistro-Our Menu" />
+      <Cover img={menuImg} title="our menu" />
+      <MenuOffer />
+      <Dessert img={dessertImg} dessert={dessert} title="dessert" />
+      <Pizza img={pizzaImg} pizza={pizza} title="pizza" />
+      <Salad img={saladImg} salad={salad} title="salad" />
+      <Soup img={soupImg} soup={soup} title="soup" />
     </>
   );
 };

@@ -11,6 +11,8 @@ const Header = () => {
   // console.log(user);
   const [cartItem, isLoading] = useCart();
   const [isAdmin] = useAdmin();
+  // console.log(isAdmin);
+  
 
   const handleLogout = () => {
     logOut()
@@ -93,7 +95,7 @@ const Header = () => {
   );
 
   return (
-    <div className="md:mx- bg-black rounded-b-md bg-opacity-30 md:w-full fixed top-0 z-10">
+    <div className="md:mx- bg-black rounded-b-md bg-opacity-80 md:w-full fixed top-0 z-20">
       <div className="navbar md:mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
@@ -129,7 +131,7 @@ const Header = () => {
           <ul className="menu menu-horizontal px-1">{navItem}</ul>
         </div>
         <div className="navbar-end space-x-2">
-          {!isAdmin && (
+          {!isAdmin?.admin && (
             <div className="indicator">
               <span className="indicator-item badge badge-secondary">
                 {cartItem?.length}

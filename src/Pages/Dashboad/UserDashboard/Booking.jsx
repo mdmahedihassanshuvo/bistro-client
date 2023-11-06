@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 import useUserBooking from "../../../Hooks/UserBooking/useUserBooking";
 import { GiCheckMark } from "react-icons/gi";
 import { FaTrashAlt } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
 
 const Booking = () => {
   const [userBookings, refetch] = useUserBooking();
@@ -32,6 +33,7 @@ const Booking = () => {
 
   return (
     <div className="bg-[#ffffff]">
+      <Helmet title="Dashboard-My Booking" />
       <div className="md:pt-5">
         <SectionTitle subHeading="Excenllent Ambience" heading="MY BOOKINGS" />
       </div>

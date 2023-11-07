@@ -3,23 +3,31 @@ import { AuthContext } from "../../../Provider/AuthProvider";
 import axios from "axios";
 import Swal from "sweetalert2";
 import useCart from "../../../Hooks/cart/useCart";
+import useAdmin from "../../../Hooks/Admin/useAdmin";
 
 const FoodCard = ({ item }) => {
+  const [isAdmin] = useAdmin();
   const { user } = useContext(AuthContext);
   const [cartItem, refetch] = useCart();
   // const [active, setActive] = useState(false);
   const { name, price, recipe, image, _id } = item;
+  
 
   const handleAddToCart = (item) => {
+
+    if(isAdmin?.admin){
+      return;
+    }
+
     item.userEmail = user?.email;
     // console.log(item);
 
-    const existItem = cartItem.find(prod => prod?._id === item?._id);
-    if(existItem){
+    const existItem = cartItem.find((prod) => prod?._id === item?._id);
+    if (existItem) {
       return Swal.fire({
-        icon: 'error',
-        text: 'Food item already added',
-      })
+        icon: "error",
+        text: "Food item already added",
+      });
     }
     axios
       .post("http://localhost:7000/cart", item)

@@ -87,7 +87,7 @@ const ManageItem = () => {
                 <td>{item.price}</td>
                 <th>
                   <Link
-                    to={`/dashboard/manageItem/updateItem/${encodeURIComponent(
+                    to={`/dashboard/updateItem/${encodeURIComponent(
                       JSON.stringify(item)
                     )}`}
                     className="btn bg-[#d1a054] text-white"

@@ -4,7 +4,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../../Provider/AuthProvider";
 
 const CheckOutForm = ({ cart, price }) => {
-  console.log(price);
+  //   console.log(price);
 
   const { user } = useContext(AuthContext);
   const stripe = useStripe();
@@ -37,7 +37,7 @@ const CheckOutForm = ({ cart, price }) => {
     if (card == null) {
       return;
     }
-    console.log("cart", card);
+    // console.log("cart", card);
 
     const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: "card",
@@ -45,11 +45,11 @@ const CheckOutForm = ({ cart, price }) => {
     });
 
     if (error) {
-      console.log("[error]", error);
+      //   console.log("[error]", error);
       setCardError(error?.message);
     } else {
       setCardError("");
-      console.log("[PaymentMethod]", paymentMethod);
+      //   console.log("[PaymentMethod]", paymentMethod);
     }
 
     setProcessing(true);
@@ -66,29 +66,27 @@ const CheckOutForm = ({ cart, price }) => {
       });
 
     if (confirmError) {
-      console.log(confirmError);
+      //   console.log(confirmError);
       setCardError(confirmError);
     }
-    console.log(paymentIntent);
+    // console.log(paymentIntent);
     setProcessing(false);
 
     if (paymentIntent.status === "succeeded") {
       setTransactionId(paymentIntent?.id);
-        const payment = {
-          email: user?.email,
-          transactionId: paymentIntent?.id,
-          price,
-          date: new Date(),
-          status: "service panging",
-          CartItems: cart.map((item) => item?.id),
-          itemName: cart.map((item) => item?.name),
-          quantity: cart?.length,
-        };
-        axios.post("http://localhost:7000/payment", payment)
-        .then(res => {
-            console.log(res.data);
-            
-        })
+      const payment = {
+        email: user?.email,
+        transactionId: paymentIntent?.id,
+        price,
+        date: new Date(),
+        status: "service panging",
+        CartItems: cart.map((item) => item?.id),
+        itemName: cart.map((item) => item?.name),
+        quantity: cart?.length,
+      };
+      axios.post("http://localhost:7000/payment", payment).then((res) => {
+        console.log(res.data);
+      });
     }
   };
 

@@ -16,7 +16,7 @@ const UserHome = () => {
   // console.log(user);
   const [paymentHistory] = usePaymentHistory();
   const totalPrice = paymentHistory
-    .reduce((sum, item) => item.price + sum, 0)
+    ?.reduce((sum, item) => item.price + sum, 0)
     .toFixed(2);
 
   return (

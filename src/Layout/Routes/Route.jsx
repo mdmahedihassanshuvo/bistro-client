@@ -109,7 +109,7 @@ const router = createBrowserRouter([
       },
       ,
       {
-        path: "dashboard/manageItem/updateItem/:item",
+        path: "/dashboard/updateItem/:item",
         element: (
           <AdminRoute>
             <UpdateItem />

@@ -10,7 +10,6 @@ import { Helmet } from "react-helmet-async";
 
 const ManageUser = () => {
   const [users, refetch] = useUsers();
-  console.log(users);
 
   const handleAdmin = (user) => {
     console.log(user);

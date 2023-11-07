@@ -7,12 +7,17 @@ import useCart from "../../../Hooks/cart/useCart";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import { FaCalendar, FaShoppingCart, FaWallet } from "react-icons/fa";
 import { Helmet } from "react-helmet-async";
+import usePaymentHistory from "../../../Hooks/Payment/usePaymentHistory";
 
 const UserHome = () => {
   const [userBookings] = useUserBooking();
   const [cartItem] = useCart();
   const { user } = useContext(AuthContext);
-  console.log(user);
+  // console.log(user);
+  const [paymentHistory] = usePaymentHistory();
+  const totalPrice = paymentHistory
+    .reduce((sum, item) => item.price + sum, 0)
+    .toFixed(2);
 
   return (
     <div className="md:mx-5">
@@ -27,7 +32,7 @@ const UserHome = () => {
           </p>
 
           <div>
-            <h2 className="md:text-xl font-medium">1000</h2>
+            <h2 className="md:text-xl font-medium">${totalPrice}</h2>
             <p className="md:text-xl font-medium">Payment</p>
           </div>
         </div>
@@ -71,7 +76,7 @@ const UserHome = () => {
               <FaCalendar /> BOOKINGS: {userBookings?.length}
             </p>
             <p className="flex justify-start items-center md:gap-2 md:mb-2 text-xl text-[#ff8042]">
-              <FaWallet /> PAYMENT: 2
+              <FaWallet /> PAYMENT: {paymentHistory?.length}
             </p>
           </div>
         </div>

@@ -21,12 +21,13 @@ import Reservation from "../../Pages/Dashboad/UserDashboard/Reservation";
 import AdminRoute from "./AdminRoute";
 import PaymentHistory from "../../Pages/Dashboad/UserDashboard/PaymentHistory";
 import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
+import Payment from "../../Pages/Dashboad/UserDashboard/Payment";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
-    errorElement: <ErrorPage/>,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
@@ -106,6 +107,15 @@ const router = createBrowserRouter([
           </AdminRoute>
         ),
       },
+      ,
+      {
+        path: "dashboard/manageItem/updateItem/:item",
+        element: (
+          <AdminRoute>
+            <UpdateItem />
+          </AdminRoute>
+        ),
+      },
       {
         path: "userHome",
         element: <UserHome />,
@@ -116,7 +126,7 @@ const router = createBrowserRouter([
       },
       {
         path: "paymentHistory",
-        element: <PaymentHistory/>
+        element: <PaymentHistory />,
       },
       {
         path: "cart",
@@ -127,8 +137,8 @@ const router = createBrowserRouter([
         element: <Booking />,
       },
       {
-        path: "/dashboard/manageItem/updateItem/:item",
-        element: <UpdateItem />,
+        path: "/dashboard/payment",
+        element: <Payment />,
       },
     ],
   },

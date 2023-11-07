@@ -6,6 +6,7 @@ import { FaTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
 import axios from "axios";
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   const [cartItem, refetch] = useCart();
@@ -47,7 +48,9 @@ const Cart = () => {
         <div className="flex justify-around items-center md:mb-5 text-2xl font-bold">
           <h2 className="uppercase">Total Order: {cartItem.length}</h2>
           <h2 className="uppercase">Total price: {totalPrice}</h2>
-          <button className="btn bg-[#d1a054]">Pay</button>
+          <Link to="/dashboard/payment">
+            <button className="btn bg-[#d1a054]">Pay</button>
+          </Link>
         </div>
         <table className="table">
           {/* head */}

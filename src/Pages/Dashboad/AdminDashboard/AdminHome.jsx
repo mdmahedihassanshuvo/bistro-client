@@ -7,10 +7,18 @@ import { MdProductionQuantityLimits } from "react-icons/md";
 import useMenu from "../../../Hooks/Menu/useMenu";
 import useUsers from "../../../Hooks/Users/useUsers";
 import { Helmet } from "react-helmet-async";
+import useAllPayment from "../../../Hooks/Payment/useAllPayment";
+import useAllCart from "../../../Hooks/cart/useAllCart";
 
 const AdminHome = () => {
   const [menu, refetch] = useMenu();
   const [users] = useUsers();
+  const [AllCartItem] = useAllCart();
+  const [AllPaymentHistory] = useAllPayment();
+  const totalPrice = AllPaymentHistory?.reduce(
+    (sum, item) => item.price + sum,
+    0
+  ).toFixed(2);
 
   // Group the menu items by category
   const categoryData = menu.reduce((acc, item) => {
@@ -56,7 +64,7 @@ const AdminHome = () => {
           </p>
 
           <div>
-            <h2 className="md:text-xl font-medium">1000</h2>
+            <h2 className="md:text-xl font-medium">${totalPrice}</h2>
             <p className="md:text-xl font-medium">Revenue</p>
           </div>
         </div>
@@ -83,7 +91,7 @@ const AdminHome = () => {
             <FaShoppingCart />
           </p>
           <div>
-            <h2 className="md:text-xl font-medium">500</h2>
+            <h2 className="md:text-xl font-medium">{AllCartItem?.length}</h2>
             <p className="md:text-xl font-medium">Orders</p>
           </div>
         </div>

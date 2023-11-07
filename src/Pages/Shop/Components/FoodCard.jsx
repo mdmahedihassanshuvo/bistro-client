@@ -14,7 +14,7 @@ const FoodCard = ({ item }) => {
     item.userEmail = user?.email;
     // console.log(item);
 
-    const existItem = cartItem.find(prod => prod.id === item.id);
+    const existItem = cartItem.find(prod => prod?._id === item?._id);
     if(existItem){
       return Swal.fire({
         icon: 'error',

@@ -23,10 +23,10 @@ const Testimonial = () => {
     },
   });
 
-  console.log(reviews);
+  // console.log(reviews);
 
   return (
-    <div className="md:mt-16 md:mb-16">
+    <div className="mt-5 md:mt-16 mb-5 md:mb-16">
       <SectionTitle
         subHeading={"What Our Clients Say"}
         heading={"TESTIMONIALS"}
@@ -36,14 +36,14 @@ const Testimonial = () => {
           {reviews.map((item) => (
             <SwiperSlide key={item._id} className="md:w-[70%] text-center space-y-3">
               <Rating
-              className="text-3xl"
+              className="text-xl md:text-3xl"
                 placeholderRating={item.rating}
                 emptySymbol={<FaRegStar className="text-[#CD9003]" />}
                 placeholderSymbol={<FaStar className="text-[#CD9003]" />}
                 fullSymbol={<FaStar className="text-[#CD9003]" />}
               />
-              <p>{item.details}</p>
-              <h2 className="text-3xl font-semibold">{item.name}</h2>
+              <p className="text-sm md:text-base">{item.details}</p>
+              <h2 className="text-xl md:text-3xl font-semibold">{item.name}</h2>
             </SwiperSlide>
           ))}
         </Swiper>

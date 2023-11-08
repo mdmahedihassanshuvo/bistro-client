@@ -95,14 +95,14 @@ const Header = () => {
   );
 
   return (
-    <div className="md:mx- bg-black rounded-b-md bg-opacity-80 md:w-full fixed top-0 z-20">
+    <div className="bg-black rounded-b-md bg-opacity-80 w-full fixed top-0 z-20">
       <div className="navbar md:mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
+                className="h-5 w-5 text-white"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -117,7 +117,7 @@ const Header = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-slate-600 rounded-box w-52"
             >
               {navItem}
             </ul>
@@ -132,7 +132,7 @@ const Header = () => {
         </div>
         <div className="navbar-end space-x-2">
           {!isAdmin?.admin && (
-            <div className="indicator">
+            <div className="indicator hidden md:block">
               <span className="indicator-item badge badge-secondary">
                 {cartItem?.length}
               </span>

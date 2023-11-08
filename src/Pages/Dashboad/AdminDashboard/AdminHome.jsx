@@ -54,12 +54,12 @@ const AdminHome = () => {
   return (
     <div className="md:mx-5">
       <Helmet title="Admin-Home" />
-      <div className="md:m-4">
-        <h2 className="md:text-3xl">Hi, WELCOME BACK!</h2>
+      <div className="mt-3 md:m-4">
+        <h2 className="text-2xl md:text-3xl text-center md:text-left">Hi, WELCOME BACK!</h2>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-4 md:gap-4 text-white">
+      <div className="grid grid-cols-4 gap-2 md:gap-4 text-white mx-2 md:mx-0">
         <div className="bg-gradient-to-r from-[#bf3ff6] to-[#f3c4fe] md:p-4 rounded-md flex justify-center items-center md:gap-3">
-          <p className="md:text-3xl font-medium">
+          <p className="md:text-3xl font-medium hidden md:block">
             <IoWalletSharp />
           </p>
 
@@ -69,7 +69,7 @@ const AdminHome = () => {
           </div>
         </div>
         <div className="bg-gradient-to-r from-[#d6a75e] to-[#f9e2b7] md:p-4 rounded-md flex justify-center items-center md:gap-3">
-          <p className="md:text-3xl font-medium">
+          <p className="md:text-3xl font-medium hidden md:block">
             <HiUsers />
           </p>
           <div>
@@ -78,7 +78,7 @@ const AdminHome = () => {
           </div>
         </div>
         <div className="bg-gradient-to-r from-[#fe568b] to-[#febada] md:p-4 rounded-md flex justify-center items-center md:gap-3">
-          <p className="md:text-3xl font-medium">
+          <p className="md:text-3xl font-medium hidden md:block">
             <MdProductionQuantityLimits />
           </p>
           <div>
@@ -87,7 +87,7 @@ const AdminHome = () => {
           </div>
         </div>
         <div className="bg-gradient-to-r from-[#72b5ff] to-[#abecff] md:p-4 rounded-md flex justify-center items-center md:gap-3">
-          <p className="md:text-3xl font-medium">
+          <p className="md:text-3xl font-medium hidden md:block">
             <FaShoppingCart />
           </p>
           <div>
@@ -97,7 +97,7 @@ const AdminHome = () => {
         </div>
       </div>
 
-      <div className="md:mt-10">
+      <div className="my-5 md:mt-10">
         <BarChart
           width={500}
           height={300}

@@ -10,10 +10,10 @@ import { Helmet } from "react-helmet-async";
 
 const ManageItem = () => {
   const [menu, refetch] = useMenu();
-  console.log(menu);
+  // console.log(menu);
 
   const handleDeleteItem = (id) => {
-    console.log(typeof id);
+    // console.log(typeof id);
     Swal.fire({
       title: "Are you sure?",
       icon: "warning",

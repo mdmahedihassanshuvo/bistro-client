@@ -27,13 +27,13 @@ const Dashboard = () => {
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         {/* flex flex-col */}
         <div className="drawer-content  bg-[#f6f6f6] items-center justify-center">
-          <Outlet />
           <label
             htmlFor="my-drawer-2"
             className="btn btn-primary drawer-button lg:hidden"
           >
             Open drawer
           </label>
+          <Outlet />
         </div>
         <div className="drawer-side ">
           <label

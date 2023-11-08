@@ -4,8 +4,8 @@ import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 const Footer = () => {
   return (
     <div>
-      <div className="grid grid-cols-2 text-white">
-        <div className="bg-[#525d6d] text-center md:py-10">
+      <div className=" grid grid-cols-2 text-white text-sm md:text-base md:font-medium">
+        <div className="bg-[#525d6d] text-center md:py-10 p-4">
           <h2>CONTACT US</h2>
           <p>
             123 ABS Street, Uni 21, Bangladesh <br />
@@ -14,7 +14,7 @@ const Footer = () => {
             Sat - Sun: 10:00 - 23:00
           </p>
         </div>
-        <div className="bg-[#111827] text-center md:py-10 md:space-y-3">
+        <div className="bg-[#111827] text-center md:py-10 p-4 md:space-y-3">
             <h2>Follow US</h2>
             <p>Join us on social media</p>
             <div className="flex justify-center items-center gap-2">

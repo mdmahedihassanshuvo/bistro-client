@@ -14,12 +14,12 @@ import slide5 from '../../../../assets/home/slide5.jpg';
 
 const FoodSlide = () => {
   return (
-    <div className="md:mt-16 md:mx-10">
+    <div className="mt-3 md:mt-16 mx-4 md:mx-10">
       <SectionTitle
         subHeading={"From 11:00am to 10:00pm"}
         heading={"ORDER ONLINE"}
       ></SectionTitle>
-      <div>
+      <div className="mt-5 md:mt-0">
         <Swiper
           slidesPerView={5}
           spaceBetween={30}

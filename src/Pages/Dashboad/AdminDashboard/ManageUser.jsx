@@ -12,12 +12,12 @@ const ManageUser = () => {
   const [users, refetch] = useUsers();
 
   const handleAdmin = (user) => {
-    console.log(user);
+    // console.log(user);
     user.roll = "admin";
     axios
       .patch(`http://localhost:7000/user/${user?._id}`, user)
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         if (res.data.matchedCount > 0) {
           Swal.fire({
             position: "center",
@@ -33,11 +33,11 @@ const ManageUser = () => {
   };
 
   const handleDeleteuser = (id) => {
-    console.log(id);
+    // console.log(id);
     axios
       .delete(`http://localhost:7000/user/${id}`)
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         if (res.data.deletedCount > 0) {
           Swal.fire({
             position: "center",
@@ -53,7 +53,7 @@ const ManageUser = () => {
   };
 
   return (
-    <div className="md:pt-5">
+    <div className="py-5 md:pt-5">
       <Helmet title="Dashboard-Manage Users" />
       <SectionTitle subHeading="How many?" heading="MANAGE ALL USERS" />
       <div className="overflow-x-auto md:w-4/5 mx-auto bg-[#ffffff] md:p-4 rounded-md">

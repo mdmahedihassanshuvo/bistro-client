@@ -40,7 +40,7 @@ const AddItem = () => {
   return (
     <div className="bg-[#ffffff]">
       <Helmet title="Dashboard-Add Item" />
-      <div className="md:pt-5">
+      <div className="py-5 md:pt-5">
         <SectionTitle subHeading="What's new?" heading="ADD AN ITEM" />
       </div>
       <div className="bg-[#f3f3f3] w-4/5 mx-auto">

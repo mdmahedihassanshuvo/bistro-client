@@ -10,7 +10,7 @@ const Dessert = ({img, dessert, title }) => {
 //   console.log(dessert);
 
   return (
-    <div className="md:my-10">
+    <div className="mb-5 md:my-10">
       <Cover img={img} title={title}/>
       <TableItem items={dessert} title={title} />
     </div>

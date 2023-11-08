@@ -11,7 +11,7 @@ const Login = () => {
   const { signInUser, loginWithGoogle } = useContext(AuthContext);
 
   const location = useLocation();
-  console.log(location);
+  // console.log(location);
   const navigate = useNavigate();
   const from = location?.state?.from?.pathname || "/";
 
@@ -23,7 +23,7 @@ const Login = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
+    // console.log(data);
     signInUser(data.email, data.password)
       .then((result) => {
         const user = result.user;
@@ -48,12 +48,12 @@ const Login = () => {
   };
 
   const handleGoogleLogin = () => {
-    console.log(typeof loginWithGoogle);
+    // console.log(typeof loginWithGoogle);
 
     loginWithGoogle()
       .then((result) => {
         const loggedUser = result?.user;
-        console.log(loggedUser);
+        // console.log(loggedUser);
         axios
           .post("http://localhost:7000/user", {
             name: loggedUser?.displayName,

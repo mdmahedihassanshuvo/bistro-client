@@ -7,7 +7,7 @@ const PaymentHistory = () => {
   const [paymentHistory, refetch] = usePaymentHistory();
 
   return (
-    <div className="md:pt-5 md:w-[80%] mx-auto">
+    <div className="my-5 md:my-0 md:pt-5 md:w-[80%] mx-auto">
       <Helmet title="Dashboard-Payment History" />
       <SectionTitle subHeading="Your payment" heading="HISTORY" />
       <div className="flex justify-around items-center md:mb-5 text-2xl font-bold">

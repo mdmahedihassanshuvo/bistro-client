@@ -4,7 +4,7 @@ import SectionTitle from "../../../../Shared/Components/SectionTitle/SectionTitl
 
 const CheckoutForm = () => {
   return (
-    <div>
+    <div className="mt-5 hidden md:block">
       <div
         className="hero min-h-screen"
         style={{

@@ -18,7 +18,7 @@ const UpdateItem = () => {
     const category = form?.category?.value;
     const price = form?.price?.value;
     const recipe = form?.recipe?.value;
-    console.log(name, category, price, recipe);
+    // console.log(name, category, price, recipe);
 
     const item = {
       name,
@@ -26,12 +26,12 @@ const UpdateItem = () => {
       price,
       recipe,
     };
-    console.log(item);
+    // console.log(item);
 
     axios
       .patch(`http://localhost:7000/menu/${itemObject._id}`, item)
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         if(res.data?.modifiedCount > 0){
           Swal.fire({
             position: 'center',

@@ -16,12 +16,12 @@ const MenuOffer = () => {
   };
 
   return (
-    <div className="md:my-10">
+    <div className="my-5 md:my-10">
       <SectionTitle subHeading={"Don't miss"} heading={"TODAY'S OFFER"} />
       <div className="md:mx-10">
         <div className="overflow-x-auto">
           <table className="table">
-            <tbody className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3">
+            <tbody className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3 mx-2 md:mx-0">
               {/* row 1 */}
               {menu.slice(0, displayCount).map((item) => (
                 <TableRow key={item._id} item={item} />

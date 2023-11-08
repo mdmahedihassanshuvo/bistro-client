@@ -14,7 +14,7 @@ const Payment = () => {
   const total = parseInt(totalPrice.toFixed(2));
 
   return (
-    <div className="md:mt-10">
+    <div className="my-5 md:my-10">
       <SectionTitle subHeading="Please procced to" heading="Your paymet" />
       <Elements stripe={stripePromise}>
         <CheckOutForm cart={cartItem} price={total} />

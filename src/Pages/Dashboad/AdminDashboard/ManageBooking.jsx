@@ -12,7 +12,7 @@ const ManageBooking = () => {
   //   console.log(bookings);
 
   const handleConfirmbooking = (booking) => {
-    console.log(booking);
+    // console.log(booking);
     booking.activity = "Done";
     axios
       .patch(`http://localhost:7000/booking/${booking?._id}`, booking)
@@ -35,7 +35,7 @@ const ManageBooking = () => {
   return (
     <div className="bg-[#ffffff]">
       <Helmet title="Dashboard-Manage Bookings" />
-      <div className="md:pt-5">
+      <div className="py-5 md:pt-5">
         <SectionTitle subHeading="At a Glance!" heading="MANAGE ALL BOOKING" />
       </div>
       <div className="overflow-x-auto md:w-4/5 mx-auto md:p-4 rounded-md">

@@ -8,7 +8,7 @@ const TableItem = ({items, title}) => {
       <div className="md:mx-10">
         <div className="overflow-x-auto">
           <table className="table">
-            <tbody className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3">
+            <tbody className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3 mx-2 md:mx-0">
               {/* row 1 */}
               {items.slice(0,6).map((item) => (
                 <TableRow key={item._id} item={item} />

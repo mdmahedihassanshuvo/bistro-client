@@ -4,7 +4,7 @@ import TableItem from '../../../../Shared/Components/Item/TableItem';
 
 const Soup = ({img, soup, title}) => {
     return (
-        <div className='md:my-10'>
+        <div className='mb-5 md:my-10'>
             <Cover img={img} title={title} />
             <TableItem items={soup} title={title}/>
         </div>

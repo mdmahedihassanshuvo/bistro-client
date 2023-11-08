@@ -7,7 +7,7 @@ const Slide = ({ item }) => {
   const { price, _id, recipe, name, image } = item;
 
   return (
-    <div className="card w-96 bg-slate-100 shadow-xl">
+    <div className="card w-80 md:w-96 bg-slate-100 shadow-xl">
       <figure>
         <img
         className="w-full"

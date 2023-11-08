@@ -47,7 +47,7 @@ const Reservation = () => {
   };
 
   return (
-    <div className="bg-[#ffffff]">
+    <div className="bg-[#ffffff] my-5 md:my-0">
       <Helmet title="Dashboard-Reservation" />
       <div className="md:pt-5">
         <SectionTitle subHeading="Reservation" heading="ADD AN ITEM" />

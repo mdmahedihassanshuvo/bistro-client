@@ -11,7 +11,7 @@ const Register = () => {
   const { user } = useContext(AuthContext);
   const { createUser, profileUpdate } = useContext(AuthContext);
   const location = useLocation();
-  console.log(location);
+  // console.log(location);
   // console.log(user);
   const navigate = useNavigate();
   const from = location?.state || "/";
@@ -24,7 +24,7 @@ const Register = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
+    // console.log(data);
     createUser(data.email, data.password)
       .then((result) => {
         const user = result.user;

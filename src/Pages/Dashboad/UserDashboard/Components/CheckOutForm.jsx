@@ -21,7 +21,7 @@ const CheckOutForm = ({ cart, price }) => {
     axios
       .post("http://localhost:7000/create-payment-intent", { price })
       .then((res) => {
-        console.log(res.data.clientSecret);
+        // console.log(res.data.clientSecret);
         setClientSecret(res.data.clientSecret);
       });
   }, [price]);

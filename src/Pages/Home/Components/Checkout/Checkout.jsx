@@ -15,25 +15,11 @@ const Checkout = () => {
   };
 
   return (
-    <div className="md:mt-16">
+    <div className="mt-5 md:mt-16">
       <SectionTitle subHeading={"Check it out"} heading={"FROM OUR MENU"} />
-      <div className="md:mx-10">
+      <div className="mx-3 md:mx-10">
         <div className="overflow-x-auto">
           <table className="table">
-            {/* head */}
-            {/* <thead>
-              <tr>
-                <th>
-                  <label>
-                    <input type="checkbox" className="checkbox" />
-                  </label>
-                </th>
-                <th>Name</th>
-                <th>Job</th>
-                <th>Favorite Color</th>
-                <th></th>
-              </tr>
-            </thead> */}
             <tbody className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3">
               {/* row 1 */}
               {menu.slice(0, displayCount).map((item) => (

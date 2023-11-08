@@ -1,12 +1,11 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React from "react";
+import { Helmet } from "react-helmet-async";
+import { FaTrashAlt } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 import useCart from "../../../Hooks/cart/useCart";
 import SectionTitle from "../../../Shared/Components/SectionTitle/SectionTitle";
-import CartItem from "./Components/CartItem";
-import { FaTrashAlt } from "react-icons/fa";
-import Swal from "sweetalert2";
-import axios from "axios";
-import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
 
 const Cart = () => {
   const [cartItem, refetch] = useCart();
@@ -29,7 +28,7 @@ const Cart = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`http://localhost:7000/cart/${id}`).then((res) => {
+        axios.delete(`https://bistro-server-714t.vercel.app/cart/${id}`).then((res) => {
           // console.log(res.data);
           if (res.data.deletedCount > 0) {
             Swal.fire("Deleted!", "Your file has been deleted.", "success");

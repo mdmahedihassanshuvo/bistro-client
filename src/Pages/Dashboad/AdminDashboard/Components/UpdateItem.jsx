@@ -1,8 +1,8 @@
+import axios from "axios";
 import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
-import { AuthContext } from "../../../../Provider/AuthProvider";
-import axios from "axios";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../../../Provider/AuthProvider";
 
 const UpdateItem = () => {
   const { item } = useParams();
@@ -29,7 +29,7 @@ const UpdateItem = () => {
     // console.log(item);
 
     axios
-      .patch(`http://localhost:7000/menu/${itemObject._id}`, item)
+      .patch(`https://bistro-server-714t.vercel.app/menu/${itemObject._id}`, item)
       .then((res) => {
         // console.log(res.data);
         if(res.data?.modifiedCount > 0){

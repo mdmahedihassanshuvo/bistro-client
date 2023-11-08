@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
 
 const useCart = () => {
@@ -9,7 +9,7 @@ const useCart = () => {
     const {data : cartItem =[], refetch} = useQuery({
         queryKey: ['cartItem', user],
         queryFn: async () =>{
-            const res = await axios.get(`http://localhost:7000/cart/${user?.email}`)
+            const res = await axios.get(`https://bistro-server-714t.vercel.app/cart/${user?.email}`)
             return res.data;
         }
     })

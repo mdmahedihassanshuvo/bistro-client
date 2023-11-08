@@ -10,15 +10,15 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 // import required modules
+import Rating from "react-rating";
 import { Pagination } from "swiper/modules";
 import SectionTitle from "../../../../Shared/Components/SectionTitle/SectionTitle";
-import Rating from "react-rating";
 
 const Testimonial = () => {
   const { data: reviews = [], refetch } = useQuery({
     queryKey: ["reviews"],
     queryFn: async () => {
-      const res = await axios("http://localhost:7000/review");
+      const res = await axios("https://bistro-server-714t.vercel.app/review");
       return res.data;
     },
   });

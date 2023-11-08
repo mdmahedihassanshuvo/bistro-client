@@ -19,7 +19,7 @@ const CheckOutForm = ({ cart, price }) => {
       return;
     }
     axios
-      .post("http://localhost:7000/create-payment-intent", { price })
+      .post("https://bistro-server-714t.vercel.app/create-payment-intent", { price })
       .then((res) => {
         // console.log(res.data.clientSecret);
         setClientSecret(res.data.clientSecret);
@@ -84,7 +84,7 @@ const CheckOutForm = ({ cart, price }) => {
         itemName: cart.map((item) => item?.name),
         quantity: cart?.length,
       };
-      axios.post("http://localhost:7000/payment", payment).then((res) => {
+      axios.post("https://bistro-server-714t.vercel.app/payment", payment).then((res) => {
         console.log(res.data);
       });
     }

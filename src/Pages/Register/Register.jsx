@@ -1,11 +1,10 @@
-import React, { createContext, useContext } from "react";
-import loginimg from "../../assets/others/Illustration.svg";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useForm } from "react-hook-form";
-import { AuthContext } from "../../Provider/AuthProvider";
-import Swal from "sweetalert2";
 import axios from "axios";
-import { FaGoogle } from "react-icons/fa";
+import React, { useContext } from "react";
+import { useForm } from "react-hook-form";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import { AuthContext } from "../../Provider/AuthProvider";
+import loginimg from "../../assets/others/Illustration.svg";
 
 const Register = () => {
   const { user } = useContext(AuthContext);
@@ -32,7 +31,7 @@ const Register = () => {
           .then(() => {
             const saveUser = { name: data.name, email: data.email };
             axios
-              .post("http://localhost:7000/user", saveUser)
+              .post("https://bistro-server-714t.vercel.app/user", saveUser)
               .then((res) => {
                 if (res.data.insertedId) {
                   Swal.fire({

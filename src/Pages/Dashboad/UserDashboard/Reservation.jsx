@@ -1,9 +1,9 @@
-import React, { useContext } from "react";
-import SectionTitle from "../../../Shared/Components/SectionTitle/SectionTitle";
 import axios from "axios";
-import { AuthContext } from "../../../Provider/AuthProvider";
-import Swal from "sweetalert2";
+import React, { useContext } from "react";
 import { Helmet } from "react-helmet-async";
+import Swal from "sweetalert2";
+import { AuthContext } from "../../../Provider/AuthProvider";
+import SectionTitle from "../../../Shared/Components/SectionTitle/SectionTitle";
 
 const Reservation = () => {
   const { user } = useContext(AuthContext);
@@ -29,7 +29,7 @@ const Reservation = () => {
       user: user?.email,
     };
     axios
-      .post("http://localhost:7000/booking", bookingTable)
+      .post("https://bistro-server-714t.vercel.app/booking", bookingTable)
       .then((res) => {
         // console.log(res.data);
         if (res.data.insertedId) {

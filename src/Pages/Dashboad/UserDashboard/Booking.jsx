@@ -1,12 +1,10 @@
-import React, { useContext } from "react";
-import SectionTitle from "../../../Shared/Components/SectionTitle/SectionTitle";
-import { AuthContext } from "../../../Provider/AuthProvider";
 import axios from "axios";
+import React from "react";
+import { Helmet } from "react-helmet-async";
+import { FaTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
 import useUserBooking from "../../../Hooks/UserBooking/useUserBooking";
-import { GiCheckMark } from "react-icons/gi";
-import { FaTrashAlt } from "react-icons/fa";
-import { Helmet } from "react-helmet-async";
+import SectionTitle from "../../../Shared/Components/SectionTitle/SectionTitle";
 
 const Booking = () => {
   const [userBookings, refetch] = useUserBooking();
@@ -14,7 +12,7 @@ const Booking = () => {
   const handleDeleteBooking = (id) => {
     // console.log(id);
     axios
-      .delete(`http://localhost:7000/booking/${id}`)
+      .delete(`https://bistro-server-714t.vercel.app/booking/${id}`)
       .then((res) => {
         // console.log(res.data);
         if (res.data.deletedCount > 0) {

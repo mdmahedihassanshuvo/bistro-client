@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
-import React, { useContext } from "react";
-import { AuthContext } from "../../Provider/AuthProvider";
 import axios from "axios";
+import { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const usePaymentHistory = () => {
   const { user } = useContext(AuthContext);
@@ -10,7 +10,7 @@ const usePaymentHistory = () => {
     queryKey: ["paymentHistory", user],
     queryFn: async () => {
       const res = await axios.get(
-        `http://localhost:7000/payment/${user?.email}`
+        `https://bistro-server-714t.vercel.app/payment/${user?.email}`
       );
       return res.data;
     },

@@ -1,8 +1,8 @@
-import React from "react";
-import SectionTitle from "../../../Shared/Components/SectionTitle/SectionTitle";
 import axios from "axios";
-import Swal from "sweetalert2";
+import React from "react";
 import { Helmet } from "react-helmet-async";
+import Swal from "sweetalert2";
+import SectionTitle from "../../../Shared/Components/SectionTitle/SectionTitle";
 
 const AddItem = () => {
   const handleForm = (event) => {
@@ -23,7 +23,7 @@ const AddItem = () => {
     };
     // console.log(newItem);
     axios
-      .post(`http://localhost:7000/menu`, newItem)
+      .post(`https://bistro-server-714t.vercel.app/menu`, newItem)
       .then((res) => {
         Swal.fire({
           position: "center",

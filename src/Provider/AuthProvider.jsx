@@ -1,14 +1,14 @@
-import React, { createContext, useEffect, useState } from "react";
 import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  onAuthStateChanged,
-  signOut,
-  updateProfile,
-  GoogleAuthProvider,
-  signInWithPopup,
+    GoogleAuthProvider,
+    createUserWithEmailAndPassword,
+    getAuth,
+    onAuthStateChanged,
+    signInWithEmailAndPassword,
+    signInWithPopup,
+    signOut,
+    updateProfile,
 } from "firebase/auth";
+import React, { createContext, useEffect, useState } from "react";
 import app from "../../firebase.config";
 
 export const AuthContext = createContext();
@@ -51,7 +51,7 @@ const AuthProvider = ({ children }) => {
       setLoading(false);
       //   if (currentUser) {
       //     axios
-      //       .post("http://localhost:7000/jwt", {
+      //       .post("https://bistro-server-714t.vercel.app/jwt", {
       //         email: currentUser?.email,
       //       })
       //       .then((res) => {

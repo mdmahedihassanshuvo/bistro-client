@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 const useUsers = () => {
@@ -9,7 +9,7 @@ const useUsers = () => {
     queryKey: ["users"],
     enabled: !loading,
     queryFn: async () => {
-      const res = await axios.get("http://localhost:7000/user");
+      const res = await axios.get("https://bistro-server-714t.vercel.app/user");
       return res.data;
     },
   });

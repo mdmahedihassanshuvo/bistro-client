@@ -1,12 +1,10 @@
-import React from "react";
-import SectionTitle from "../../../Shared/Components/SectionTitle/SectionTitle";
-import useUsers from "../../../Hooks/Users/useUsers";
-import { Link } from "react-router-dom";
-import { FiEdit } from "react-icons/fi";
-import { FaTrashAlt, FaUserAlt, FaUserFriends } from "react-icons/fa";
 import axios from "axios";
-import Swal from "sweetalert2";
+import React from "react";
 import { Helmet } from "react-helmet-async";
+import { FaTrashAlt, FaUserAlt, FaUserFriends } from "react-icons/fa";
+import Swal from "sweetalert2";
+import useUsers from "../../../Hooks/Users/useUsers";
+import SectionTitle from "../../../Shared/Components/SectionTitle/SectionTitle";
 
 const ManageUser = () => {
   const [users, refetch] = useUsers();
@@ -15,7 +13,7 @@ const ManageUser = () => {
     // console.log(user);
     user.roll = "admin";
     axios
-      .patch(`http://localhost:7000/user/${user?._id}`, user)
+      .patch(`https://bistro-server-714t.vercel.app/user/${user?._id}`, user)
       .then((res) => {
         // console.log(res.data);
         if (res.data.matchedCount > 0) {
@@ -35,7 +33,7 @@ const ManageUser = () => {
   const handleDeleteuser = (id) => {
     // console.log(id);
     axios
-      .delete(`http://localhost:7000/user/${id}`)
+      .delete(`https://bistro-server-714t.vercel.app/user/${id}`)
       .then((res) => {
         // console.log(res.data);
         if (res.data.deletedCount > 0) {

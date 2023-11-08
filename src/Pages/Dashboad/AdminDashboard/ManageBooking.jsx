@@ -1,11 +1,10 @@
-import React from "react";
-import SectionTitle from "../../../Shared/Components/SectionTitle/SectionTitle";
-import useBooking from "../../../Hooks/Booking/useBooking";
-import { FcCheckmark } from "react-icons/fc";
-import { GiCheckMark } from "react-icons/gi";
 import axios from "axios";
-import Swal from "sweetalert2";
+import React from "react";
 import { Helmet } from "react-helmet-async";
+import { GiCheckMark } from "react-icons/gi";
+import Swal from "sweetalert2";
+import useBooking from "../../../Hooks/Booking/useBooking";
+import SectionTitle from "../../../Shared/Components/SectionTitle/SectionTitle";
 
 const ManageBooking = () => {
   const [bookings, refetch] = useBooking();
@@ -15,7 +14,7 @@ const ManageBooking = () => {
     // console.log(booking);
     booking.activity = "Done";
     axios
-      .patch(`http://localhost:7000/booking/${booking?._id}`, booking)
+      .patch(`https://bistro-server-714t.vercel.app/booking/${booking?._id}`, booking)
       .then((res) => {
         // console.log(res.data);
         if (res.data.matchedCount > 0) {

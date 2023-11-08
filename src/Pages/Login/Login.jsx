@@ -1,11 +1,11 @@
-import React, { useContext } from "react";
-import loginimg from "../../assets/others/Illustration.svg";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useForm } from "react-hook-form";
-import { AuthContext } from "../../Provider/AuthProvider";
-import Swal from "sweetalert2";
-import { FaGoogle } from "react-icons/fa";
 import axios from "axios";
+import React, { useContext } from "react";
+import { useForm } from "react-hook-form";
+import { FaGoogle } from "react-icons/fa";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import { AuthContext } from "../../Provider/AuthProvider";
+import loginimg from "../../assets/others/Illustration.svg";
 
 const Login = () => {
   const { signInUser, loginWithGoogle } = useContext(AuthContext);
@@ -55,7 +55,7 @@ const Login = () => {
         const loggedUser = result?.user;
         // console.log(loggedUser);
         axios
-          .post("http://localhost:7000/user", {
+          .post("https://bistro-server-714t.vercel.app/user", {
             name: loggedUser?.displayName,
             email: loggedUser?.email,
           })

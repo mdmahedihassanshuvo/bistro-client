@@ -1,12 +1,12 @@
+import axios from "axios";
 import React from "react";
-import useMenu from "../../../Hooks/Menu/useMenu";
-import SectionTitle from "../../../Shared/Components/SectionTitle/SectionTitle";
+import { Helmet } from "react-helmet-async";
 import { FaTrashAlt } from "react-icons/fa";
 import { FiEdit } from "react-icons/fi";
-import Swal from "sweetalert2";
-import axios from "axios";
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+import Swal from "sweetalert2";
+import useMenu from "../../../Hooks/Menu/useMenu";
+import SectionTitle from "../../../Shared/Components/SectionTitle/SectionTitle";
 
 const ManageItem = () => {
   const [menu, refetch] = useMenu();
@@ -23,7 +23,7 @@ const ManageItem = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`http://localhost:7000/menu/${id}`).then((res) => {
+        axios.delete(`https://bistro-server-714t.vercel.app/menu/${id}`).then((res) => {
           // console.log(res.data);
           if (res.data.deletedCount > 0) {
             Swal.fire("Deleted!", "Your file has been deleted.", "success");

@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useContext } from 'react';
-import { AuthContext } from '../../Provider/AuthProvider';
 import axios from 'axios';
+import { useContext } from 'react';
+import { AuthContext } from '../../Provider/AuthProvider';
 
 const useAdmin = () => {
     const {user} = useContext(AuthContext)
@@ -9,7 +9,7 @@ const useAdmin = () => {
     const {data: isAdmin, isLoading} = useQuery({
         queryKey: ['isAdmin', user],
         queryFn: async () =>{
-            const res = await axios.get(`http://localhost:7000/user/admin/${user?.email}`);
+            const res = await axios.get(`https://bistro-server-714t.vercel.app/user/admin/${user?.email}`);
             return res.data;
         }
     })

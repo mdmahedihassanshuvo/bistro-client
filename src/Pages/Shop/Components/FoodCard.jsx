@@ -1,9 +1,9 @@
-import React, { useContext, useState } from "react";
-import { AuthContext } from "../../../Provider/AuthProvider";
 import axios from "axios";
+import React, { useContext } from "react";
 import Swal from "sweetalert2";
-import useCart from "../../../Hooks/cart/useCart";
 import useAdmin from "../../../Hooks/Admin/useAdmin";
+import useCart from "../../../Hooks/cart/useCart";
+import { AuthContext } from "../../../Provider/AuthProvider";
 
 const FoodCard = ({ item }) => {
   const [isAdmin] = useAdmin();
@@ -30,7 +30,7 @@ const FoodCard = ({ item }) => {
       });
     }
     axios
-      .post("http://localhost:7000/cart", item)
+      .post("https://bistro-server-714t.vercel.app/cart", item)
       .then((res) => {
         // console.log(res);
         if (res.data.insertedId) {

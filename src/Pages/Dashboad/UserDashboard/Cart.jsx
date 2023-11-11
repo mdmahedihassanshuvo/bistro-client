@@ -12,7 +12,7 @@ const Cart = () => {
   //   console.log(cartItem);
 
   const totalPrice = cartItem
-    .reduce((sum, item) => item.price + sum, 0)
+    ?.reduce((sum, item) => item.price + sum, 0)
     .toFixed(2);
 
   // console.log(totalPrice);
@@ -28,13 +28,15 @@ const Cart = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`https://bistro-server-714t.vercel.app/cart/${id}`).then((res) => {
-          // console.log(res.data);
-          if (res.data.deletedCount > 0) {
-            Swal.fire("Deleted!", "Your file has been deleted.", "success");
-            refetch();
-          }
-        });
+        axios
+          .delete(`https://bistro-server-714t.vercel.app/cart/${id}`)
+          .then((res) => {
+            // console.log(res.data);
+            if (res.data.deletedCount > 0) {
+              Swal.fire("Deleted!", "Your file has been deleted.", "success");
+              refetch();
+            }
+          });
       }
     });
   };

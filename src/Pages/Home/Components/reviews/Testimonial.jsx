@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import React from "react";
+import React, { useEffect } from "react";
 import { FaRegStar, FaStar } from "react-icons/fa";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -13,8 +13,14 @@ import "swiper/css/pagination";
 import Rating from "react-rating";
 import { Pagination } from "swiper/modules";
 import SectionTitle from "../../../../Shared/Components/SectionTitle/SectionTitle";
+import "aos/dist/aos.css"; // Import the AOS CSS file
+import AOS from "aos";
 
 const Testimonial = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   const { data: reviews = [], refetch } = useQuery({
     queryKey: ["reviews"],
     queryFn: async () => {
@@ -26,7 +32,11 @@ const Testimonial = () => {
   // console.log(reviews);
 
   return (
-    <div className="mt-5 md:mt-16 mb-5 md:mb-16">
+    <div
+    data-aos="fade-right"
+    data-aos-duration="1500"
+      className="mt-5 md:mt-16 mb-5 md:mb-16"
+    >
       <SectionTitle
         subHeading={"What Our Clients Say"}
         heading={"TESTIMONIALS"}
@@ -34,9 +44,12 @@ const Testimonial = () => {
       <div className="md:w-5/6 mx-auto">
         <Swiper modules={[Pagination]} className="mySwiper">
           {reviews.map((item) => (
-            <SwiperSlide key={item._id} className="md:w-[70%] text-center space-y-3">
+            <SwiperSlide
+              key={item._id}
+              className="md:w-[70%] text-center space-y-3"
+            >
               <Rating
-              className="text-xl md:text-3xl"
+                className="text-xl md:text-3xl"
                 placeholderRating={item.rating}
                 emptySymbol={<FaRegStar className="text-[#CD9003]" />}
                 placeholderSymbol={<FaStar className="text-[#CD9003]" />}

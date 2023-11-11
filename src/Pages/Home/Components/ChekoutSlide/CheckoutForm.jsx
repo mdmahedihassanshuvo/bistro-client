@@ -1,20 +1,33 @@
-import React from "react";
+import React, { useEffect } from "react";
 import feature from "../../../../assets/home/featured.jpg";
 import SectionTitle from "../../../../Shared/Components/SectionTitle/SectionTitle";
+import "aos/dist/aos.css"; // Import the AOS CSS file
+import AOS from "aos";
 
 const CheckoutForm = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
   return (
-    <div className="mt-5 hidden md:block">
+    <div
+      data-aos="fade-left"
+      data-aos-offset="300"
+      data-aos-easing="ease-in-sine"
+      className="mt-5 hidden md:block"
+    >
       <div
         className="hero min-h-screen"
         style={{
           backgroundImage: `url(${feature})`,
-          backgroundAttachment: 'fixed',
+          backgroundAttachment: "fixed",
         }}
       >
         <div className="hero-overlay bg-opacity-60">
           <div className="md:py-4 text-white">
-          <SectionTitle subHeading={"Check it out"} heading={"FROM OUR MENU"} />
+            <SectionTitle
+              subHeading={"Check it out"}
+              heading={"FROM OUR MENU"}
+            />
           </div>
         </div>
         <div className="hero-content text-center text-neutral-content">
@@ -25,13 +38,15 @@ const CheckoutForm = () => {
               </div>
               <div className="w-full md:w-[50%] text-white text-left">
                 <p className="mb-5 ">
-                  March 20, 2023 <br /> WHERE CAN I GET SOME? Lorem ipsum dolor sit
-                  amet consectetur adipisicing elit. Error voluptate facere,
+                  March 20, 2023 <br /> WHERE CAN I GET SOME? Lorem ipsum dolor
+                  sit amet consectetur adipisicing elit. Error voluptate facere,
                   deserunt dolores maiores quod nobis quas quasi. Eaque repellat
                   recusandae ad laudantium tempore consequatur consequuntur
                   omnis ullam maxime tenetur.
                 </p>
-                <button className="btn btn-ghost border-b-2 text-white hover:text-orange-500 border-b-white">Get Started</button>
+                <button className="btn btn-ghost border-b-2 text-white hover:text-orange-500 border-b-white">
+                  Get Started
+                </button>
               </div>
             </div>
           </div>

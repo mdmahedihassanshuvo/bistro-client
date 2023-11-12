@@ -7,7 +7,6 @@ import Recommend from "../Components/Recommend/Recommend";
 import Announce from "../Components/Announce/Announce";
 import CheckoutForm from "../Components/ChekoutSlide/CheckoutForm";
 import Testimonial from "../Components/reviews/Testimonial";
-import Footer from "../../../Shared/Footer/Footer";
 import { Helmet } from "react-helmet-async";
 
 const Home = () => {
@@ -19,7 +18,6 @@ const Home = () => {
       <Poster1 />
       <Checkout />
       <Recommend />
-      <Announce />
       <CheckoutForm />
       <Testimonial />
     </>

@@ -64,9 +64,9 @@ const Register = () => {
   //   console.log(watch("example")); // watch input value by passing the name of it
 
   return (
-    <div className="md:my-10">
-      <div className="hero min-h-screen bg-base-200 flex justify-center items-center md:gap-10">
-        <div>
+    <div className="pt-16 pb-5 md:pt-20 md:pb-10">
+      <div className="hero min-h-screen flex flex-col md:flex-row justify-center items-center md:gap-10">
+        <div className="hidden md:block">
           <img src={loginimg} alt="" />
         </div>
         <div className="hero-content flex-col">

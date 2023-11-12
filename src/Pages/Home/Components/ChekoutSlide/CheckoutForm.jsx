@@ -1,20 +1,10 @@
 import React, { useEffect } from "react";
 import feature from "../../../../assets/home/featured.jpg";
 import SectionTitle from "../../../../Shared/Components/SectionTitle/SectionTitle";
-import "aos/dist/aos.css"; // Import the AOS CSS file
-import AOS from "aos";
 
 const CheckoutForm = () => {
-  useEffect(() => {
-    AOS.init();
-  }, []);
   return (
-    <div
-      data-aos="fade-left"
-      data-aos-offset="300"
-      data-aos-easing="ease-in-sine"
-      className="mt-5 hidden md:block"
-    >
+    <div className="mt-5 md:mt-10 hidden md:block">
       <div
         className="hero min-h-screen"
         style={{
